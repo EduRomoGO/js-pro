@@ -4,7 +4,8 @@
   "description": "Resolucion de ejercicios curso https://redradix.com/cursos/javascript-avanzado/",
   "main": "classes.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "./node_modules/.bin/babel-node --plugins transform-decorators-legacy decoradores.js"
   },
   "repository": {
     "type": "git",

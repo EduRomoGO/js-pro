@@ -1,0 +1,40 @@
+Dudas
+#####
+
+    Cuando se habla de constructor es lo mismo que hablar de clase?
+
+
+cadena de prototipos
+
+crea objeto vacio y se asigna como prototipo del nuevo objeto, la propiedad prototype del constructor
+
+diff prototipo y prototype - el prototipo de un objeto es una propiedad especial que almacena la 'herencia' del objeto
+el prototipo de una funcion es una propiedad especial de dicha funcion donde se pueden almacenar informacion
+
+Subklass.prototype = Object.create(Klass.prototype)
+
+
+los decoradores se ejecutan al instanciar la clase y ademas tambien se ejecutan las funciones que se devuelvan, si es que se devuelve alguna
+
+
+try catch congela la ejecucion
+
+cuando haces una coercion de tipos de un array a string, js ejecuta su metodo toString, por eso al hacer console.log(['a', 'b']) te muestra a,b
+
+Decoradores
+###########
+
+Funciones que alteran el comportamiento de un metodo. Reciben 3 parametros: la clase, el metodo, y el descriptor de la propiedad sobre la que se aplican
+
+Se ejecutan en el momento ejecucion, al definir la clase donde se encuentren
+
+
+
+The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain of an object.
+
+{ 
+    "presets": ["env"],
+    "plugins": [
+        "transform-decorators-legacy"
+    ]
+}
