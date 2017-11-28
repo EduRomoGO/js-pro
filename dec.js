@@ -1,7 +1,37 @@
-@withCount
-class Dog {
+var _desc, _value, _class;
+
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+    var desc = {};
+    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+        desc[key] = descriptor[key];
+    });
+    desc.enumerable = !!desc.enumerable;
+    desc.configurable = !!desc.configurable;
+
+    if ('value' in desc || desc.initializer) {
+        desc.writable = true;
+    }
+
+    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+        return decorator(target, property, desc) || desc;
+    }, desc);
+
+    if (context && desc.initializer !== void 0) {
+        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+        desc.initializer = undefined;
+    }
+
+    if (desc.initializer === void 0) {
+        Object['define' + 'Property'](target, property, desc);
+        desc = null;
+    }
+
+    return desc;
+}
+
+let Dog = (_class = class Dog {
     constructor(name) {
-        this.name
+        this.name;
     }
 
     // @prevent
@@ -10,31 +40,31 @@ class Dog {
     // @deprecatedMsg('im deprecated!')
     // @trace
     // @debug
-    // @katch
+
     bark() {
         console.log('wof');
-        throw 'except';        
+        throw 'except';
         return 'wof';
     }
-    
-    @benchmark
+
     sit() {
         console.log('im gonna sit');
     }
-    
+
     barkAndSit() {
         this.bark();
         this.sit();
     }
-}
+}, (_applyDecoratedDescriptor(_class.prototype, 'bark', [katch], Object.getOwnPropertyDescriptor(_class.prototype, 'bark'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'sit', [benchmark], Object.getOwnPropertyDescriptor(_class.prototype, 'sit'), _class.prototype)), _class);
+
 
 const spot = new Dog('spot');
 
-// spot.bark = () => console.log('guau');
+spot.bark = () => console.log('guau');
 
 // spot.bark();
 
-function readonly (target, key, descriptor) { 
+function readonly(target, key, descriptor) {
     const desc = Object.assign({}, descriptor);
 
     desc.writable = false;
@@ -42,7 +72,7 @@ function readonly (target, key, descriptor) {
     return desc;
 }
 
-function deprecated () {
+function deprecated() {
     return (target, key, descriptor) => {
         console.log('method deprecated');
         // descriptor.value();
@@ -51,31 +81,28 @@ function deprecated () {
     };
 }
 
-function trace (target, key, descriptor) {
+function trace(target, key, descriptor) {
     const value = descriptor.value;
 
     descriptor.value = (...args) => {
         const val = value(...args);
         console.log(`metodo ${key} invocado con args ${args} y valor de retorno ${val}`);
-    }
-    
+    };
+
     return descriptor;
 }
 // global.debug = true;
 // spot.bark('aaaa', 'bbbbb');
 spot.barkAndSit();
 
-function benchmark(target, key, descriptor) {
-
-}
-
+function benchmark(target, key, descriptor) {}
 
 // En este caso tenemos una excepcion que se lanza en el metodo bark, y ahi es donde la capturamos, pero el programa viene ejecutado mediante spot.barkAndSit(); por lo que si global.debug is false, continuamos la ejecucion del programa por donde se pueda, en este caso ejecutando this.sit();
 
 // Otro apunte es la necesidad de pasar this a la ejecucion del value del descriptor (ie, el propio metodo),
 // ya que si no se lo pasamos, lo que ocurre es que se pierde, y da error
 
-function katch (target, key, descriptor) {
+function katch(target, key, descriptor) {
     const value = descriptor.value;
 
     descriptor.value = function (...args) {
@@ -89,7 +116,7 @@ function katch (target, key, descriptor) {
                 return undefined;
             }
         }
-    }
+    };
 
     return descriptor;
 }
@@ -98,11 +125,11 @@ function deprecatedMsg(msg) {
     return (target, key, descriptor) => {
         const desc = Object.assign({}, descriptor);
 
-        desc.value = function(...args) {
+        desc.value = function (...args) {
             console.log(msg + ` ${key} method dixit`);
             descriptor.value.call(this, ...args);
-        }
-            
+        };
+
         return desc;
     };
 }
@@ -120,7 +147,7 @@ function debug(target, key, descriptor) {
     descriptor.value = (...args) => {
         console.log(`global.debug is ${global.debug}`);
         if (global.debug === true) value();
-    }
+    };
 
     return descriptor;
 }

@@ -23,6 +23,7 @@ function withCounter (Cls) {
 const CountedMammal = withCounter(Mammal);
 
 const cMam = new CountedMammal();
+const cMam3 = new CountedMammal();
 const cMam2 = new CountedMammal();
 // cMam.__proto__ === CountedMammal.prototype
 

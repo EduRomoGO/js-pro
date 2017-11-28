@@ -38,3 +38,23 @@ The instanceof operator tests whether the prototype property of a constructor ap
         "transform-decorators-legacy"
     ]
 }
+
+
+Descriptor de propiedades
+
+
+
+
+Functional Programming
+######################
+
+
+paradigma de programación
+
+
+función 
+
+
+una funcion que devuelve true o false se llama predicado
+
+
