@@ -58,3 +58,4 @@ función
 una funcion que devuelve true o false se llama predicado
 
 
+pasar times - 1 como parametro

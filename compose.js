@@ -6,6 +6,17 @@ function compose (a, b) {
     };
 }
 
+function compose(...fns) {
+    const [head, ...tail] = fns.reverse();
+    return (...args) => {
+        return reduce(
+            (acc, fn) => fn(acc),
+            head(...args),
+            tail
+        );
+    };
+}
+
 const mult = (a, b) => a * b;
 const half = (a) => a/2;
 

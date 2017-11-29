@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "callbacks",
+            "program": "${workspaceFolder}/async/callbacks.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/compose.js"
         }
