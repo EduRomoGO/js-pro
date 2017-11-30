@@ -2,6 +2,7 @@ Dudas
 #####
 
     Cuando se habla de constructor es lo mismo que hablar de clase?
+    tipos de datos proxies?
 
 
 cadena de prototipos
@@ -59,3 +60,50 @@ una funcion que devuelve true o false se llama predicado
 
 
 pasar times - 1 como parametro
+
+
+3 - Programacion funcional
+
+    Paradigma de programacion: es un enfoque particular que resuelve un problema
+    Aprender un nuevo lenguaje de programacion es fácil, sin embargo aprender un nuevo paradigma es complicado, ya que hay que cambiar la forma de pensar
+    "Programacion funcional es programar sin usar statements de asignacion"
+
+    Se trabaja creando muchas operaciones sobre pocos tipos de datos (en js, arrays y objetos) en contraposicion con la programacion orientada a objetos, en la que se realizan pocas operaciones sobre muchos tipos de datos diferentes (clases). Ejemplo:
+
+        POO
+
+            class figuraGeometrica {
+                area () {}
+            }
+
+            20 subclases que hereden de figuraGeometrica tendran que implementar el metodo area
+
+            y si queremos añadir una nueva operacion a figuraGeometrica, habra que implementarlo 20 veces
+
+        FP
+
+            tenemos 20 operaciones sobre el tipo de dato Objeto, si añadimos otro tipo de dato, tendriamos que implementar las mismas 20 operaciones para ese tipo de
+
+    La programacion funcional se caracteriza por
+    
+        Eliminar el estado del programa
+        Expresar la computacion con transformaciones de datos (sin mutar estado)
+        Escribiendo y combinando funciones
+
+    Ventajas
+
+        Es mas facil razonar sobre el codigo si esta expresado declarativamente y sin estado
+        Cualquier seccion del codigo se puede entender y testear aisladamennte
+        Es mas sencillo predecir el comportamiento del programa
+        Fomenta la reutilizacion del codigo
+
+    Conceptos fundamentales
+
+        funcion - es la pieza clave de la programacion funcional
+        transparencia referencial - una expresion es transparentemente referencial si se puede sustituir por su valor sin alterar el funcionamiento del programa
+        funciones puras - funcion cuyo valor de salida solo viene determinado por sus parametros de entrada, para mismos parametros de entrada siempre devolveran el mismo resultado evitando efectos secundarios (modificacion de estado en alguna otra parte)
+        estado - no hay que almacenar estado
+        programacion declarativa - indicar QUE se quiere hacer en lugar de COMO se quiere conseguir
+        programacion imperativa - es un estilo de programacion (paradigma?) donde secuencialmente le decimos paso a paso al programa lo que vamos a ejecutar
+        expresion - es una combinacion de valores y funciones que devuelve un valor
+        sentencia - no devuelve un valor
