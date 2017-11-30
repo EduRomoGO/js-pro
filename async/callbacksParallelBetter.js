@@ -5,30 +5,26 @@ const {
     getScoreBoard
 } = require('./index.js');
 
-getPlayers((err, players) => {
-    if (err) console.log(err);
-    else {
-        let playersSaved = 0;
-        players.forEach(player => {
-            const playerScore = {
-                name: player,
-                score: []
-            };
+const players = ['Fry', 'Bender', 'Leela', 'Amy', 'Zoidberg'];
 
-            ensureThrowDice((score) => {
-                playerScore.score = score;
-                savePlayerScore(playerScore, (err) => {
-                    if(err) console.log(err);
-                    else {
-                        if (++playersSaved === players.length) {
-                            retryFn(getScoreBoard, result => console.log(result));
-                        }
-                    }
-                });
-            });
-        })
+let playersSaved = 0;
+players.forEach(player => {
+    const playerScore = {
+        name: player,
+        score: []
+    };
 
-    }
+    ensureThrowDice((score) => {
+        playerScore.score = score;
+        savePlayerScore(playerScore, (err) => {
+            if(err) console.log(err);
+            else {
+                if (++playersSaved === players.length) {
+                    retryFn(getScoreBoard, result => console.log(result));
+                }
+            }
+        });
+    });
 });
 
 const retryFn = (fn, callback) => {
