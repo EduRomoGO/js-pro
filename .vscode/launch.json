@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "mapSeriesPromise",
+            "program": "${workspaceFolder}/async/mapSeriesPromise.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "callbacks",
             "program": "${workspaceFolder}/async/callbacks.js"
         },

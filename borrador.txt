@@ -3,6 +3,11 @@ Dudas
 
     Cuando se habla de constructor es lo mismo que hablar de clase?
     tipos de datos proxies?
+    Streams
+    colas
+
+
+elias@redradix.com
 
 
 cadena de prototipos
