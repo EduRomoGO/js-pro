@@ -1,3 +1,10 @@
+1 - Fundamentos
+###############
+2 - Programacion Orientada a Objetos
+####################################
+
+
+
 3 - Programacion funcional
 ##########################
 
@@ -19,13 +26,32 @@
 
         FP
 
-            tenemos 20 operaciones sobre el tipo de dato Objeto, si añadimos otro tipo de dato, tendriamos que implementar las mismas 20 operaciones para ese tipo de
+            tenemos 20 operaciones sobre el tipo de dato Objeto, si añadimos otro tipo de dato, tendriamos que implementar las mismas 20 operaciones para ese tipo de data
 
-    La programacion funcional se caracteriza por
+
+    Particularidades
+
+        POO
+            Un programa imperativo es semejante a una cadena de montaje, cada clase es una etapa independiente que realiza una funcion separada. Esta expresada como instrucciones a seguir
+
+        FP
+            
+            Un programa funcional es semejante a un diccionario
+            Cada función define un nuevo concepto expresando una relación de elementos más simples
+            La meta es definir un vocabulario de dominio con el que se pueda expresar nuestra aplicacion
+
+            Un programa funcional se construye de otra manera
+                a partir de las herramientas que nos da el lenguaje
+                construímos muchas funciones muy sencillas
+                se combinan para expresar ideas más complejas
+                hasta construir un vocabulario lo bastante rico para expresar qué queremos conseguir
+                pensamos en resultados, no en pasos
+
+    La programacion funcional se basa en:
     
         Eliminar el estado del programa
         Expresar la computacion con transformaciones de datos (sin mutar estado)
-        Escribiendo y combinando funciones
+        Escribir y combinar funciones
 
     Ventajas
 
@@ -33,6 +59,7 @@
         Cualquier seccion del codigo se puede entender y testear aisladamennte
         Es mas sencillo predecir el comportamiento del programa
         Fomenta la reutilizacion del codigo
+        El programa crece de manera natural. Cuanto más crece, más rico es su vocabulario y cuanto más rico es su vocabulario, más fácil es seguir extendiéndolo
 
     Conceptos fundamentales
 
@@ -46,3 +73,28 @@
         sentencia - no devuelve un valor
         predicado - una funcion que devuelve true o false
 
+    Pilares
+
+        Funciones de orden superior
+
+            Son funciones que operan sobre otras funciones:
+                - Reciben funciones como parametros de entrada
+                - Devuelven funciones como retorno
+                - Nos permiten abstraer sobre acciones
+            
+        Existen muchas funciones muy utiles, pero estas son las fundamentales:
+
+            Operaciones sobre listas:
+                - map
+                - filter
+                - reduce
+            
+            Operaciones sobre objetos:
+                - prop
+                - assoc
+                - mapKeys
+                - mapValues
+
+
+4 - Programacion asincrona
+##########################
