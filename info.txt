@@ -40,14 +40,12 @@
             Cada función define un nuevo concepto expresando una relación de elementos más simples
             La meta es definir un vocabulario de dominio con el que se pueda expresar nuestra aplicacion
 
-            Un programa funcional se construye de otra manera
-                a partir de las herramientas que nos da el lenguaje
-                construímos muchas funciones muy sencillas
-                se combinan para expresar ideas más complejas
-                hasta construir un vocabulario lo bastante rico para expresar qué queremos conseguir
-                pensamos en resultados, no en pasos
+            Un programa funcional se construye de otra manera:
+                A partir de las herramientas que nos da el lenguaje construímos muchas funciones muy sencillas
+                Estas funciones se combinan para expresar ideas más complejas hasta construir un vocabulario lo bastante rico para expresar qué queremos conseguir
+                Pensamos en resultados, no en pasos
 
-    La programacion funcional se basa en:
+    La programacion funcional se basa en las siguientes reglas:
     
         Eliminar el estado del programa
         Expresar la computacion con transformaciones de datos (sin mutar estado)
@@ -73,7 +71,7 @@
         sentencia - no devuelve un valor
         predicado - una funcion que devuelve true o false
 
-    Pilares
+    Herramientas para poder seguir las reglas:
 
         Funciones de orden superior
 
@@ -81,20 +79,37 @@
                 - Reciben funciones como parametros de entrada
                 - Devuelven funciones como retorno
                 - Nos permiten abstraer sobre acciones
-            
-        Existen muchas funciones muy utiles, pero estas son las fundamentales:
 
-            Operaciones sobre listas:
+        Operaciones fundamentales:
+
+            Sobre listas:
                 - map
                 - filter
                 - reduce
             
-            Operaciones sobre objetos:
+            Sobre objetos:
                 - prop
                 - assoc
                 - mapKeys
                 - mapValues
 
+        Composición de funciones
+
+            Recursividad 
+                - Es la composición más simple
+                - Toda operacion que pueda expresarse como un bucle, puede expresarse de manera recursiva
+                La recursividad es superior a la iteracion porque es mas expresiva y el estado es manejado por el entorno, no por nosotros
+
+        Programación Tácita (point-free programming = sin argumentos)
+            - Definir funciones componiendo otras funciones
+            - No hacer explícitos los argumentos
+            
+            Esta manera de programar:
+                - Ayuda a pensar en componer funciones (alto nivel) en vez de pensar en manipular data (bajo nivel)
+                - Fomenta la creación de un vocabulario rico del dominio
+                - Es un estilo ideal al que deberíamos tender, el “nirvana” de la programación funcional
+                - Es síntoma de un programa maduro y bien diseñado
+                - Es característico de las capas “altas” del programa
 
 4 - Programacion asincrona
 ##########################
