@@ -1,5 +1,38 @@
 1 - Fundamentos
 ###############
+
+    6 tipos de datos basicos: String, Number, Boolean, Symbol, Null y undefined
+    Closures
+    rest/spread operator
+    Symbols
+    Iteradores
+        Es un interfaz de bajo nivel para operar con iteradores no solo en arrays.
+    Generadores
+    Mapas
+    Sets
+    Object
+        seal
+        freeze
+        assign
+        keys
+        values
+        defineProperty: Configura una propiedad del objeto (existente o nueva)
+            Object.defineProperty(obj, prop, desc);
+            desc = {
+                value,
+                enumerable,
+                configurable,
+                writable
+            }
+            Valores por defecto: 
+                value (undefined)
+                enumerable (false)
+                configurable (false)
+                writable (false)
+            get / set
+        create
+
+
 2 - Programacion Orientada a Objetos
 ####################################
 

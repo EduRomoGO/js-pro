@@ -12,7 +12,7 @@ elias@redradix.com
 
 cadena de prototipos
 
-crea objeto vacio y se asigna como prototipo del nuevo objeto, la propiedad prototype del constructor
+Crear un objeto mediante una funcion constructora asigna como prototipo del nuevo objeto, la propiedad prototype de dicha funcion constructora
 
 diff prototipo y prototype - el prototipo de un objeto es una propiedad especial que almacena la 'herencia' del objeto
 el prototipo de una funcion es una propiedad especial de dicha funcion donde se pueden almacenar informacion
