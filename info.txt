@@ -36,7 +36,9 @@
 2 - Programacion Orientada a Objetos
 ####################################
 
+arrow functions:
 
+    fijan this al contexto de definicion de la funcion, no al de invocacion, por lo tanto no depende de como se invoque a la funcion (no es dinamico)
 
 3 - Programacion funcional
 ##########################
@@ -44,6 +46,8 @@
     Paradigma de programacion: es un enfoque particular que resuelve un problema
     Aprender un nuevo lenguaje de programacion es fácil, sin embargo aprender un nuevo paradigma es complicado, ya que hay que cambiar la forma de pensar
     "Programacion funcional es programar sin usar statements de asignacion"
+
+    Functional programming is the process of building software by composing pure functions, avoiding shared state, mutable data, and side-effects. Functional programming is declarative rather than imperative, and application state flows through pure functions. Contrast with object oriented programming, where application state is usually shared and colocated with methods in objects.
 
     Se trabaja creando muchas operaciones sobre pocos tipos de datos (en js, arrays y objetos) en contraposicion con la programacion orientada a objetos, en la que se realizan pocas operaciones sobre muchos tipos de datos diferentes (clases). Ejemplo:
 
@@ -64,22 +68,19 @@
 
     Particularidades
 
-        POO
+        POO 
             Un programa imperativo es semejante a una cadena de montaje, cada clase es una etapa independiente que realiza una funcion separada. Esta expresada como instrucciones a seguir
 
         FP
             
             Un programa funcional es semejante a un diccionario
-            Cada función define un nuevo concepto expresando una relación de elementos más simples
-            La meta es definir un vocabulario de dominio con el que se pueda expresar nuestra aplicacion
-
-            Un programa funcional se construye de otra manera:
-                A partir de las herramientas que nos da el lenguaje construímos muchas funciones muy sencillas
-                Estas funciones se combinan para expresar ideas más complejas hasta construir un vocabulario lo bastante rico para expresar qué queremos conseguir
-                Pensamos en resultados, no en pasos
+                - Cada funcion define un nuevo concepto expresando una relacion de elementos mas simples. Es decir, a partir de las herramientas que nos da el lenguaje construimos muchas funciones muy sencillas
+                - Estas funciones se combinan para expresar ideas más complejas
+                - La meta es definir un vocabulario de dominio con el que se pueda expresar nuestra aplicacion, expresar que queremos conseguir (en contraposcion a como lo queremos conseguir)
+                - Pensamos en resultados, no en pasos
 
     La programacion funcional se basa en las siguientes reglas:
-    
+
         Eliminar el estado del programa
         Expresar la computacion con transformaciones de datos (sin mutar estado)
         Escribir y combinar funciones
@@ -104,6 +105,13 @@
         sentencia - no devuelve un valor
         predicado - una funcion que devuelve true o false
 
+
+    Js as Functional Language
+
+        In functional programming, any type of data is fair game. The same map() utility can map over objects, strings, numbers, or any other data type because it takes a function as an argument which appropriately handles the given data type. FP pulls off its generic utility trickery using higher order functions.
+        JavaScript has first class functions, which allows us to treat functions as data — assign them to variables, pass them to other functions, return them from functions, etc…
+        A higher order function is any function which takes a function as an argument, returns a function, or both. Higher order functions are often used to:
+
     Herramientas para poder seguir las reglas:
 
         Funciones de orden superior
@@ -126,12 +134,19 @@
                 - mapKeys
                 - mapValues
 
+            Generales
+                - curry
+                - partial
+                - monads
+
         Composición de funciones
 
             Recursividad 
                 - Es la composición más simple
                 - Toda operacion que pueda expresarse como un bucle, puede expresarse de manera recursiva
                 La recursividad es superior a la iteracion porque es mas expresiva y el estado es manejado por el entorno, no por nosotros
+            compose
+            pipe
 
         Programación Tácita (point-free programming = sin argumentos)
             - Definir funciones componiendo otras funciones
@@ -143,6 +158,6 @@
                 - Es un estilo ideal al que deberíamos tender, el “nirvana” de la programación funcional
                 - Es síntoma de un programa maduro y bien diseñado
                 - Es característico de las capas “altas” del programa
-
+    Patterns associated
 4 - Programacion asincrona
 ##########################
