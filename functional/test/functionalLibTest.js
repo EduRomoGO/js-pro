@@ -1,5 +1,7 @@
 const lib = require('../functionalLib.js');
 var assert = require('assert');
+const chai = require('chai');
+const expect = chai.expect;
 
 const sum = (a, b) => a + b;
 console.log(sum(2, 3) === 5);

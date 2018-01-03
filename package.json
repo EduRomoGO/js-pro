@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/redradix/curso-javascript-pro#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "chai": "^4.1.2"
   },
   "dependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
