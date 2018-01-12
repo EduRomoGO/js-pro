@@ -21,6 +21,8 @@ function partialRight(fn, ...args) {
 
 const op1 = partialRight(operation, 1, 3);
 const op2 = partialRight(operation, 5);
+const op3 = partialRight(operation, 2, 3);
 
 console.log(op1(2));
 console.log(op2(4, 3));
+console.log(op3(4, 3, 0));

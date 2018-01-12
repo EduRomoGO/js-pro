@@ -17,11 +17,15 @@ const range = currify((from, to) => {
     return range;
 });
 
+function partial (fn, ...args) {
+    return (...newArgs) => fn(...args, ...newArgs);
+}
 
 const lib = {
     pack,
     currify, 
-    range
+    range,
+    partial
 };
 
 module.exports = lib;
