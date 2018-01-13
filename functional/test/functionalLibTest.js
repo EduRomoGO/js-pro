@@ -8,7 +8,7 @@ const half = a => a/2;
 const mult = currify((a, b) => a * b);
 // const mult = currify((...args) => args.reduce((prevValue, nextValue) => prevValue * nextValue, 1));
 const mult10 = mult(10);
-const numberList = [1, 2, 3, 4];
+const numbersList = [1, 2, 3, 4];
 
 
 describe('lib', () => {
@@ -96,13 +96,31 @@ describe('lib', () => {
         it('should return an array', () => {
             const sum3 = currify(sum)(3);
 
-            expect(map(sum3, numberList)).to.be.an('array');
+            expect(map(sum3, numbersList)).to.be.an('array');
         });
         
         it('should apply the function passed to it to each elemen of the array passed to it', () => {
             const sum3 = currify(sum)(3);
-
-            expect(map(sum3, numberList)).to.deep.equal([4, 5, 6, 7]);
+            
+            expect(map(sum3, numbersList)).to.deep.equal([4, 5, 6, 7]);
         });
+        
+        it('should not be able to be applied partially, because it is not currified', () => {
+            try {
+                const sum100 = currify(sum)(100);
+                const mapPlus100 = map(sum100);
+            } catch (e) {
+                expect(e.name).to.equal('TypeError');
+                expect(e.message).to.equal("Cannot read property 'map' of undefined");
+            }
+        }); 
+        
+        it('should be able to be applied partially, because it is currified', () => {
+            const sum100 = currify(sum)(100);
+            const cmap = currify(map);
+            const mapPlus100 = cmap(sum100);
+
+            expect(mapPlus100(numbersList)).to.deep.equal([101, 102, 103, 104]);
+        }); 
     });
 });
