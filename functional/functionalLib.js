@@ -26,12 +26,15 @@ const compose = (...fns) =>
         (...args) => nextFn.call({}, prevFn.call({}, ...args))
     );
 
+const map = (fn, list) => list.map(n => fn(n));
+
 const lib = {
     pack,
     currify, 
     range,
     partial,
-    compose
+    compose,
+    map
 };
 
 module.exports = lib;

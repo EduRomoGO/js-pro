@@ -1,4 +1,4 @@
-const {pack, range, currify, compose} = require('../functionalLib.js');
+const {pack, range, currify, compose, map} = require('../functionalLib.js');
 var assert = require('assert');
 const chai = require('chai');
 const expect = chai.expect;
@@ -8,6 +8,7 @@ const half = a => a/2;
 const mult = currify((a, b) => a * b);
 // const mult = currify((...args) => args.reduce((prevValue, nextValue) => prevValue * nextValue, 1));
 const mult10 = mult(10);
+const numberList = [1, 2, 3, 4];
 
 
 describe('lib', () => {
@@ -42,13 +43,24 @@ describe('lib', () => {
             const mult = (a, b, c) => a * b * c;
             const cmult = currify(mult);
             const cmult2 = cmult(2);
+            const cmult2y3 = cmult(2, 3);
 
             expect(sum3(7)).to.equal(10);
             expect(sum3(10)).to.equal(13);
             expect(cmult(2, 3, 4)).to.equal(24);
             expect(cmult2(3, 4)).to.equal(24);
             expect(cmult2(3)(4)).to.equal(24);
+            expect(cmult2y3(5)).to.equal(30);
         });
+
+        it('more examples', () => {
+            const suma4 = currify((a, b, c, d) => a + b + c + d);
+
+            expect(suma4(1, 1, 1)(1)).to.equal(4);
+            expect(suma4(1, 1)(1, 1)).to.equal(4);
+            expect(suma4(1)(1, 1, 1)).to.equal(4);
+            expect(suma4(1)(1)(1)(1)).to.equal(4);
+        })
     });
 
     describe('compose', () => {
@@ -77,6 +89,20 @@ describe('lib', () => {
             
             expect(triangleArea(4, 5)).to.equal(10);
             expect(areaFromTriangle(myTriangle)).to.equal(10);
+        });
+    });
+
+    describe('map', () => {
+        it('should return an array', () => {
+            const sum3 = currify(sum)(3);
+
+            expect(map(sum3, numberList)).to.be.an('array');
+        });
+        
+        it('should apply the function passed to it to each elemen of the array passed to it', () => {
+            const sum3 = currify(sum)(3);
+
+            expect(map(sum3, numberList)).to.deep.equal([4, 5, 6, 7]);
         });
     });
 });
