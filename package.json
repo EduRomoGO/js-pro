@@ -4,7 +4,7 @@
   "description": "Resolucion de ejercicios curso https://redradix.com/cursos/javascript-avanzado/",
   "main": "classes.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha functional/test",
+    "test": "./node_modules/mocha/bin/mocha functional/test -w",
     "decorators": "./node_modules/.bin/babel-node --plugins transform-decorators-legacy decoradores.js",
     "classDecorators": "./node_modules/.bin/babel-node --plugins transform-decorators-legacy classDecorators.js"
   },
