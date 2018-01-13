@@ -5,7 +5,7 @@
 // Log the result in the console
 
 const {writters} = require('./data.js');
-const {partial} = require('../functionalLib.js');
+const {partial, compose} = require('../functionalLib.js');
 
 // wrong, doesnt return a new array
 // function correctIncomes () {
@@ -19,12 +19,20 @@ const {partial} = require('../functionalLib.js');
 
 
 // using partial
+// const mult = (a, b) => a * b;
+// const mult1000 = partial(mult, 1000);
+// function correctIncomes () {
+//     return writters.map(item => item.incomes).map(mult1000);
+// }
+
+// using partial and compose
 const mult = (a, b) => a * b;
 const mult1000 = partial(mult, 1000);
-function correctIncomes () {
-    return writters.map(item => item.incomes).map(mult1000);
-}
+const getIncomes = writer => writer.incomes;
 
+function correctIncomes () {
+    return writters.map(compose(mult1000, getIncomes));
+}
 
 const correctWritters = correctIncomes();
 console.log(writters);
