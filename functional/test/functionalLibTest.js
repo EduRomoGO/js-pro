@@ -5,6 +5,7 @@ const expect = chai.expect;
 
 const sum = (a, b) => a + b;
 const half = a => a/2;
+const mult10 = a => a*10;
 
 const range3 = range(3);
 console.log(range(3, 6) === [3, 4, 5, 6]);
@@ -34,6 +35,8 @@ describe('lib', () => {
         it('should execute all the functions passed to it from right to left with the arguments passed to it', () => {
             expect(sumHalf(20, 30)).to.equal(25);
             expect(sumHalf(10, 2)).to.equal(6);
+            expect(compose(mult10, half, sum)(10, 2)).to.equal(60);
+            expect(compose(mult10, sumHalf)(10, 2)).to.equal(60);
         });
     });
 });
