@@ -17,9 +17,9 @@ const range = currify((from, to) => {
     return range;
 });
 
-function partial (fn, ...args) {
-    return (...newArgs) => fn(...args, ...newArgs);
-}
+const partial = (fn, ...args) => (...newArgs) => fn(...args, ...newArgs);
+
+const partialRight = (fn, ...args) => (...newArgs) => fn(...newArgs, ...args);
 
 const compose = (...fns) =>
     fns.reverse().reduce((prevFn, nextFn) => 
@@ -34,7 +34,8 @@ const lib = {
     range,
     partial,
     compose,
-    map
+    map,
+    partialRight
 };
 
 module.exports = lib;

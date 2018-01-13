@@ -1,13 +1,15 @@
-const {pack, range, currify, compose, map} = require('../functionalLib.js');
+const {pack, range, currify, compose, map, partial, partialRight} = require('../functionalLib.js');
 var assert = require('assert');
 const chai = require('chai');
 const expect = chai.expect;
 
 const sum = (a, b) => a + b;
 const half = a => a/2;
+const operation = (a, b, c) => a * b - c;
 const mult = currify((a, b) => a * b);
 // const mult = currify((...args) => args.reduce((prevValue, nextValue) => prevValue * nextValue, 1));
 const mult10 = mult(10);
+
 const numbersList = [1, 2, 3, 4];
 
 
@@ -19,6 +21,38 @@ describe('lib', () => {
             expect(range(3, 6)).to.deep.equal([3, 4, 5, 6]);
             expect(range3(7)).to.deep.equal([3, 4, 5, 6, 7]);
         });
+    });
+
+    describe('partial', () => {
+        it('should return a function if not all the params of the function that is being partially applied are provided', () => {
+            expect(partial(sum, 100)).to.be.a('function');
+        });
+        
+        it('should apply partially a function to a list of parameters, returning a function that can be applied to the rest of the parameters needed by the function to produce a value', () => {
+            const sum100 = partial(sum, 100);
+            const op = partial(operation, 3, 6);
+            
+            expect(sum(2, 3)).to.equal(5);
+            expect(sum100(2)).to.equal(102);
+            expect(op(2)).to.equal(16);
+        });
+    });
+    
+    describe('partial right', () => {
+        it('should return a function if not all the params of the function that is being partially applied are provided', () => {
+            expect(partialRight(sum, 100)).to.be.a('function');
+        });
+
+        it('should apply partially a function to a list of parameters, from right to left, returning a function that can be applied to the rest of the parameters needed by the function to produce a value', () => {
+            const op1 = partialRight(operation, 1, 3);
+            const op2 = partialRight(operation, 5);
+            const op3 = partialRight(operation, 2, 3);
+            
+            expect(op1(2)).to.equal(-1);
+            expect(op2(4, 3)).to.equal(7);
+            expect(op3(4, 3, 0)).to.equal(12);
+        });
+        
     });
 
     describe('pack', () => {
@@ -54,12 +88,12 @@ describe('lib', () => {
         });
 
         it('more examples', () => {
-            const suma4 = currify((a, b, c, d) => a + b + c + d);
+            const sum4 = currify((a, b, c, d) => a + b + c + d);
 
-            expect(suma4(1, 1, 1)(1)).to.equal(4);
-            expect(suma4(1, 1)(1, 1)).to.equal(4);
-            expect(suma4(1)(1, 1, 1)).to.equal(4);
-            expect(suma4(1)(1)(1)(1)).to.equal(4);
+            expect(sum4(1, 1, 1)(1)).to.equal(4);
+            expect(sum4(1, 1)(1, 1)).to.equal(4);
+            expect(sum4(1)(1, 1, 1)).to.equal(4);
+            expect(sum4(1)(1)(1)(1)).to.equal(4);
         })
     });
 
