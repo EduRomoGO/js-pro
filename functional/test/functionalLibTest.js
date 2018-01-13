@@ -58,25 +58,25 @@ describe('lib', () => {
             expect(sumHalf).to.be.a('function');
         });
 
-        
-        // const triangleArea = compose(half, mult);
-        // const triangleAreaPacked = compose(half, pack(mult));
-        // const myTriangle = {
-        //     base: 4,
-        //     height: 5
-        // };
-        // const getAreaData = triangle => [triangle.base, triangle.height]
-        // const areaFromTriangle = compose(triangleAreaPacked, getAreaData);
-        
-        // console.log(triangleArea(4, 5));
-        // console.log(Object.values(myTriangle));
-        // console.log(areaFromTriangle(myTriangle));
-
         it('should execute all the functions passed to it from right to left with the arguments passed to it', () => {
             expect(sumHalf(20, 30)).to.equal(25);
             expect(sumHalf(10, 2)).to.equal(6);
             expect(compose(mult10, half, sum)(10, 2)).to.equal(60);
             expect(compose(mult10, sumHalf)(10, 2)).to.equal(60);
+        });
+        
+        it('more examples', () => {
+            const triangleArea = compose(half, mult);
+            const triangleAreaPacked = compose(half, pack(mult));
+            const myTriangle = {
+                base: 4,
+                height: 5
+            };
+            const getAreaData = triangle => [triangle.base, triangle.height]
+            const areaFromTriangle = compose(triangleAreaPacked, getAreaData);
+            
+            expect(triangleArea(4, 5)).to.equal(10);
+            expect(areaFromTriangle(myTriangle)).to.equal(10);
         });
     });
 });
