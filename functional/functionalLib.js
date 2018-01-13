@@ -11,11 +11,14 @@ const currify = (fn) => {
     };
 };
 
-const range = currify((from, to) => {
+const range = currify((initial, end) => {
     const range = [];
-    for (let i = from; i <= to; i++) range.push(i);
-    return range;
+    if (initial < end) {
+        for(let i = initial; i <= end; i++) range.push(i);
+        return range;
+    } else console.log(`initial value #{initial} should be less than end value #{end}`);
 });
+
 
 const partial = (fn, ...args) => (...newArgs) => fn(...args, ...newArgs);
 
