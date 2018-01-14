@@ -1,4 +1,4 @@
-const {pack, range, currify, compose, map, partial, partialRight} = require('../functionalLib.js');
+const {pack, range, currify, compose, map, partial, partialRight, first} = require('../functionalLib.js');
 var assert = require('assert');
 const chai = require('chai');
 const expect = chai.expect;
@@ -156,5 +156,18 @@ describe('lib', () => {
 
             expect(mapPlus100(numbersList)).to.deep.equal([101, 102, 103, 104]);
         }); 
+    });
+
+    // describe('filter', () => {
+
+    // });
+
+    describe('first', () => {
+        it('should return the first n (one by default) items of the given array', () => {
+            expect(first([1, 2, 3], 2)).to.deep.equal([1, 2]);
+            expect(first([1, 2, 3])).to.deep.equal([1]);
+            expect(first([1, 2, 3, undefined,  5, 6, 7])).to.deep.equal([1]);
+            expect(first([1, 2, 3, undefined,  5, 6, 7], 4)).to.deep.equal([1, 2, 3, undefined]);
+        });
     });
 });

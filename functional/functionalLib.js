@@ -31,6 +31,9 @@ const compose = (...fns) =>
 
 const map = (fn, list) => list.map(n => fn(n));
 
+const first = ([h, ...t], n = 1) => ([h, ...t].length > 0 && n > 0) ? [h, ...first(t, n - 1)] : [];
+
+
 const lib = {
     pack,
     currify, 
@@ -38,7 +41,8 @@ const lib = {
     partial,
     compose,
     map,
-    partialRight
+    partialRight,
+    first
 };
 
 module.exports = lib;
