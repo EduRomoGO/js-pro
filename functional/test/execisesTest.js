@@ -1,7 +1,7 @@
 const {pack, range, currify, compose, map, partial, partialRight, first} = require('../functionalLib.js');
-const {writters} = require('./data.js');
+const {writters, names} = require('./data.js');
 const {fizzBuzz, functionalFizzBuzz} = require('../exercisesSolutions/fizzBuzz.js');
-const {correctIncomes} = require('../exercisesSolutions/basics.js');
+const {correctIncomes} = require('../exercisesSolutions/medium.js');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -21,10 +21,18 @@ describe('exercises', () => {
         });
     });
 
-
     describe('Given a collection of writters (in data.js), correctIncomes function', () => {
         it ('should correct a typo in their incomes that returns a new array whith only the incomes corrected multiplied by 1000', () => {
             expect(correctIncomes(writters)).to.deep.equal([ 93000, 44000, 98000, 13000 ]);
+        });
+    });
+
+    describe('basics', () => {
+        it('return a new array greeting all names', () => {
+            const greet = n => `hi ${n}`;
+            const greetAll = names => names.map(greet);
+
+            expect(greetAll(names)).to.deep.equal(['hi juan', 'hi ivan', 'hi jose', 'hi sebas', 'hi miguel', 'hi ricardo', 'hi edu']);
         });
     });
 });
