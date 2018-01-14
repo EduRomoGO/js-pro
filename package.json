@@ -1,23 +1,15 @@
 {
-  "name": "curso-javascript-pro",
+  "name": "js-pro",
   "version": "1.0.0",
-  "description": "Resolucion de ejercicios curso https://redradix.com/cursos/javascript-avanzado/",
+  "description": "Working out redradix js-pro course",
   "main": "classes.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha functional/test -w",
     "decorators": "./node_modules/.bin/babel-node --plugins transform-decorators-legacy decoradores.js",
     "classDecorators": "./node_modules/.bin/babel-node --plugins transform-decorators-legacy classDecorators.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/redradix/curso-javascript-pro.git"
-  },
-  "author": "",
+  "author": "@EduRomoGO",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/redradix/curso-javascript-pro/issues"
-  },
-  "homepage": "https://github.com/redradix/curso-javascript-pro#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "chai": "^4.1.2"
