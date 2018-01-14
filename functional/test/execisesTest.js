@@ -1,7 +1,7 @@
 const {pack, range, currify, compose, map, partial, partialRight, first} = require('../functionalLib.js');
-const {fizzBuzz, functionalFizzBuzz} = require('../exercises/fizzBuzz.js');
 const {writters} = require('./data.js');
-const {correctIncomes} = require('../exercises/basics.js');
+const {fizzBuzz, functionalFizzBuzz} = require('../exercisesSolutions/fizzBuzz.js');
+const {correctIncomes} = require('../exercisesSolutions/basics.js');
 
 const chai = require('chai');
 const expect = chai.expect;
