@@ -2,6 +2,7 @@ const {pack, range, currify, compose, map, partial, partialRight, first} = requi
 const {writters, names} = require('./data.js');
 const {fizzBuzz, functionalFizzBuzz} = require('../exercisesSolutions/fizzBuzz.js');
 const {correctIncomes} = require('../exercisesSolutions/medium.js');
+const {greetAll} = require('../exercisesSolutions/basics.js');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -29,9 +30,6 @@ describe('exercises', () => {
 
     describe('basics', () => {
         it('return a new array greeting all names', () => {
-            const greet = n => `hi ${n}`;
-            const greetAll = names => names.map(greet);
-
             expect(greetAll(names)).to.deep.equal(['hi juan', 'hi ivan', 'hi jose', 'hi sebas', 'hi miguel', 'hi ricardo', 'hi edu']);
         });
     });
