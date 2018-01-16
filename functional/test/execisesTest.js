@@ -2,7 +2,7 @@ const {pack, range, currify, compose, map, partial, partialRight, first} = requi
 const {writters, names, numbers} = require('./data.js');
 const {fizzBuzz, functionalFizzBuzz} = require('../exercisesSolutions/fizzBuzz.js');
 const {correctIncomes} = require('../exercisesSolutions/medium.js');
-const {greetAll, getSum} = require('../exercisesSolutions/basics.js');
+const {greetAll, getSum, getGreatest} = require('../exercisesSolutions/basics.js');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -37,6 +37,11 @@ describe('exercises', () => {
         // suggestion: use reduce
         it('return the sum of the numbers array', () => {
             expect(getSum(numbers)).to.deep.equal(150);
+        });
+
+        // suggestion: use reduce
+        it('return the greatest number in the array', () => {
+            expect(getGreatest(numbers)).to.deep.equal(60);
         });
     });
 });

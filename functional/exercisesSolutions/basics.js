@@ -8,4 +8,6 @@ const greetAll = names => names.map(greet);
 
 const getSum = (numbers) => numbers.reduce((acc, nextVal) => acc + nextVal, 0);
 
-module.exports = {greetAll, getSum};
+const getGreatest = (numbers) => numbers.reduce((acc, nextVal) => acc > nextVal ? acc : nextVal, 0);
+
+module.exports = {greetAll, getSum, getGreatest};
