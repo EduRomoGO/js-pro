@@ -6,6 +6,7 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha functional/test -w",
     "test-ex": "./node_modules/mocha/bin/mocha functional/test/execisesTest.js -w",
+    "test-examples": "./node_modules/mocha/bin/mocha functional/test/examplesTests.js -w",
     "decorators": "./node_modules/.bin/babel-node --plugins transform-decorators-legacy decoradores.js",
     "classDecorators": "./node_modules/.bin/babel-node --plugins transform-decorators-legacy classDecorators.js"
   },

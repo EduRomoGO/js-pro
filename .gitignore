@@ -26,3 +26,4 @@ static/js/dist/bundle.js
 
 # Ignore awesomplete folder
 /static/js/dist/vendors/awesomplete
+npm-debug.log
