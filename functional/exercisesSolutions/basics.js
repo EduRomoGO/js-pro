@@ -5,4 +5,7 @@ const greet = concat('hi ');
 // const greet = n => `hi ${n}`;
 const greetAll = names => names.map(greet);
 
-module.exports = {greetAll};
+
+const getSum = (numbers) => numbers.reduce((acc, nextVal) => acc + nextVal, 0);
+
+module.exports = {greetAll, getSum};

@@ -1,8 +1,8 @@
 const {pack, range, currify, compose, map, partial, partialRight, first} = require('../functionalLib.js');
-const {writters, names} = require('./data.js');
+const {writters, names, numbers} = require('./data.js');
 const {fizzBuzz, functionalFizzBuzz} = require('../exercisesSolutions/fizzBuzz.js');
 const {correctIncomes} = require('../exercisesSolutions/medium.js');
-const {greetAll} = require('../exercisesSolutions/basics.js');
+const {greetAll, getSum} = require('../exercisesSolutions/basics.js');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -29,8 +29,14 @@ describe('exercises', () => {
     });
 
     describe('basics', () => {
+        // suggestion: use currify and map
         it('return a new array greeting all names', () => {
             expect(greetAll(names)).to.deep.equal(['hi juan', 'hi ivan', 'hi jose', 'hi sebas', 'hi miguel', 'hi ricardo', 'hi edu']);
+        });
+
+        // suggestion: use reduce
+        it('return the sum of the numbers array', () => {
+            expect(getSum(numbers)).to.deep.equal(150);
         });
     });
 });
