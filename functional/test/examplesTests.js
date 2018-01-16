@@ -23,8 +23,20 @@ describe('examples', () => {
         it ('receives a function that will be applied to each element of the array', () => {
             const numbers = [2, 3, 4];
             const double = n => 2*n;
-
+            
             expect(numbers.map(double)).to.deep.equal([4, 6, 8]);
+        });
+    });
+    
+    describe('reduce', () => {
+        it ('returns a single item from the array it is invoked upon', () => {
+            const numbers = [1, 2, 3];
+            const numbersReduced = numbers.reduce((prevValue, nextValue) => {
+                prevValue[nextValue] = nextValue;
+                return prevValue;
+            }, {});
+
+            expect(numbersReduced).to.deep.equal({1: 1, 2: 2, 3: 3});
         });
     });
 });
