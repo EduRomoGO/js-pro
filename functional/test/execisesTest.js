@@ -1,8 +1,8 @@
 const {pack, range, currify, compose, map, partial, partialRight, first} = require('../functionalLib.js');
-const {writters, names, numbers, triangle} = require('./data.js');
+const {writters, names, numbers, triangle, books, concerts} = require('./data.js');
 const {fizzBuzz, functionalFizzBuzz} = require('../exercisesSolutions/fizzBuzz.js');
-const {correctIncomes} = require('../exercisesSolutions/medium.js');
 const {greetAll, getSum, getGreatest, triangleArea} = require('../exercisesSolutions/basics.js');
+const {correctIncomes, sortList} = require('../exercisesSolutions/medium.js');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -19,12 +19,6 @@ describe('exercises', () => {
 
         it('should return the same for both modes', () => {
             expect(fizzBuzz()).to.deep.equal(functionalFizzBuzz());
-        });
-    });
-
-    describe('Given a collection of writters (in data.js), correctIncomes function', () => {
-        it ('should correct a typo in their incomes that returns a new array whith only the incomes corrected multiplied by 1000', () => {
-            expect(correctIncomes(writters)).to.deep.equal([ 93000, 44000, 98000, 13000 ]);
         });
     });
 
@@ -47,6 +41,27 @@ describe('exercises', () => {
         // restriction: use compose
         it('return the area of a triangle', () => {
             expect(triangleArea(triangle)).to.deep.equal(50);
+        });
+    });
+
+    describe('Given a collection of writters (in data.js), correctIncomes function', () => {
+        it ('should correct a typo in their incomes that returns a new array whith only the incomes corrected multiplied by 1000', () => {
+            expect(correctIncomes(writters)).to.deep.equal([ 93000, 44000, 98000, 13000 ]);
+        });
+    });
+
+    describe('medium', () => {
+        it('sort list of books by price', () => {
+            const booksSorted = [
+                {"id":1,"writter":"Rakel","title":"Kisses","price":32},
+                {"id":3,"writter":"Worthy","title":"Rabbit Without Ears 2 (Zweiohrküken)","price":59},
+                {"id":4,"writter":"Nikola","title":"Love, Rosie","price":72},
+                {"id":2,"writter":"Morton","title":"Curiosity of Chance, The","price":75}
+            ];
+    
+            console.log('sonethusantoheusntahosenuthansotehusnatoheusntaho');
+            console.log(sortList(books));
+            expect(sortList(books)).to.deep.equal(booksSorted);
         });
     });
 });

@@ -28,4 +28,7 @@ function correctIncomes (writters) {
 }
 
 
-module.exports = {correctIncomes};
+const sortList = (list) => list.sort((a, b) => a.price > b.price);
+
+
+module.exports = {correctIncomes, sortList};
