@@ -1,8 +1,8 @@
 const {pack, range, currify, compose, map, partial, partialRight, first} = require('../functionalLib.js');
-const {writters, names, numbers} = require('./data.js');
+const {writters, names, numbers, triangle} = require('./data.js');
 const {fizzBuzz, functionalFizzBuzz} = require('../exercisesSolutions/fizzBuzz.js');
 const {correctIncomes} = require('../exercisesSolutions/medium.js');
-const {greetAll, getSum, getGreatest} = require('../exercisesSolutions/basics.js');
+const {greetAll, getSum, getGreatest, triangleArea} = require('../exercisesSolutions/basics.js');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -28,7 +28,7 @@ describe('exercises', () => {
         });
     });
 
-    describe('basics', () => {
+    describe('basics (all the data passed to functions comes from data.js, unless explicitly stated on the test)', () => {
         // suggestion: use currify and map
         it('return a new array greeting all names', () => {
             expect(greetAll(names)).to.deep.equal(['hi juan', 'hi ivan', 'hi jose', 'hi sebas', 'hi miguel', 'hi ricardo', 'hi edu']);
@@ -42,6 +42,11 @@ describe('exercises', () => {
         // suggestion: use reduce
         it('return the greatest number in the array', () => {
             expect(getGreatest(numbers)).to.deep.equal(60);
+        });
+
+        // restriction: use compose
+        it('return the area of a triangle', () => {
+            expect(triangleArea(triangle)).to.deep.equal(50);
         });
     });
 });

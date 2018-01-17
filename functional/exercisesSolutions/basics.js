@@ -10,4 +10,8 @@ const getSum = (numbers) => numbers.reduce((acc, nextVal) => acc + nextVal, 0);
 
 const getGreatest = (numbers) => numbers.reduce((acc, nextVal) => acc > nextVal ? acc : nextVal, 0);
 
-module.exports = {greetAll, getSum, getGreatest};
+const mult = (a, b) => a*b;
+const half = n => n/2;
+const triangleArea = (triangle) => compose(half, mult)(triangle.base, triangle.height);
+
+module.exports = {greetAll, getSum, getGreatest, triangleArea};

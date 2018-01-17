@@ -6,5 +6,9 @@ module.exports = {
         {"id":4,"first_name":"Sheffy","last_name":"Bringloe","email":"sbringloe3@ezinearticles.com","gender":"Male","incomes":13}
     ],
     names: ['juan', 'ivan', 'jose', 'sebas', 'miguel', 'ricardo', 'edu'],
-    numbers: [20, 30, 40, 60]
+    numbers: [20, 30, 40, 60],
+    triangle: {
+        base: 25,
+        height: 4
+    }
 };
