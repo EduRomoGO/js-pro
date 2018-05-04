@@ -161,3 +161,29 @@ arrow functions:
     Patterns associated
 4 - Programacion asincrona
 ##########################
+
+Decoradores
+###########
+    
+    los decoradores se ejecutan al instanciar la clase y ademas tambien se ejecutan las funciones que se devuelvan, si es que se devuelve alguna
+
+    Funciones que alteran el comportamiento de un metodo. Reciben 3 parametros: la clase, el metodo, y el descriptor de la propiedad sobre la que se aplican
+
+    Se ejecutan en el momento ejecucion, al definir la clase donde se encuentren
+
+
+Otros
+#####
+
+    try catch congela la ejecucion
+
+    cuando haces una coercion de tipos de un array a string, js ejecuta su metodo toString, por eso al hacer console.log(['a', 'b']) te muestra a,b
+
+    The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain of an object.
+
+    { 
+        "presets": ["env"],
+        "plugins": [
+            "transform-decorators-legacy"
+        ]
+    }
